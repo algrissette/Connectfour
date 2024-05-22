@@ -1,0 +1,103 @@
+Alan Grissette
+Hsalley@bu.edu
+puzzles with 5-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			10		5.0		117.3
+BFS			10		5		47.1
+DFS (depth limit 20)	10		16.2		19072
+DFS (depth limit 50)	9		48.3		43638.222
+Greedy Search (using h1)10		5.4		70.4 
+A* (using h1)		10		5		6.7
+
+
+
+
+puzzles with 10-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			10		13.0		5140.9
+BFS			10		10.0		747.4
+DFS (depth limit 20)	0		0		0
+DFS (depth limit 50)	8		49		50515.625
+Greedy Search (using h1)10		77.8		1470.4
+A* (using h1)		10		10.0		30.2
+
+
+
+puzzles with 15-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			5		17.8		8764.8
+BFS			10		15		12672.0
+DFS (depth limit 20)	9		18.11		56455.77
+DFS (depth limit 50)	8		48.5		30240.5
+Greedy Search (using h1)9		85.667		3358.88 
+A* (using h1)		10		15		347.7
+
+
+Overall, Aster was the fastest, but what I noticed was that it doesnt really matter about speed wen there are only 5 to solve. Even for random, there
+Is a very limited chance that much time will be taken up. I did notice, though that the DFS with a limit of 50 seems to be even more time consuming than the random. When it came to the puzzle that featured 10, Random and Greedy were actually pretty similar in states tested, with greedy performing a bit better. Lastly, Astar's results remained super speedy. These tests showed that the more moves their are for the optimal solution, Astar's intelligence and ability to use the heuristic to better analyze the board definitely comes in handy more so than any of the other algorithms. Even Greedy, although it is very similar to Aster, lack the average moves and avg states tested, but at least with greedy the outcome seems feasible. With DFS, it some time appeared like the outcome would never come. 
+
+
+heuristic h2
+------------
+This heuristic gives every value on the board a score of 2. This eventually adds up to 16 points for the initial board. This is because 9*2=18 and then I subtracted 2 for the blank because that is a given difference that shouldn't effect the outcome of what should be the next move. Instead of analyzing if the tile is in the wrong place and then adding a point, I decided to analyze if the tile is in the right place, then I subtract a point. If the tile is in the right column one point will be taken from total points. If the tile is in the right row the same will happen. If both is the case then two points will be taken. 
+
+
+puzzles with 18-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)
+Greedy (heuristic h2)
+# Greedy with any other heuristics
+
+A* (heuristic h1)	10		18		1861
+A* (heuristic h2)	10		18		576
+# Greedy h2		10		89.8		374.9
+
+puzzles with 21-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)
+Greedy (heuristic h2)
+# Greedy with any other heuristics
+
+A* (heuristic h1)	10		21.0		7728.5
+A* (heuristic h2)	10		21.0		1974.6
+# Greedy h2 		10		113		428.9		
+
+
+puzzles with 24-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)
+Greedy (heuristic h2)
+# Greedy with any other heuristics
+
+A* (heuristic h1)	2		24		27403
+A* (heuristic h2)	10		24		7205
+# Greedy h2 		10		134		583.9
+
+
+puzzles with 27-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)
+Greedy (heuristic h2)
+# Greedy with any other heuristics
+
+A* (heuristic h1)	0		0		0
+A* (heuristic h2)	1		27		39089
+# Greedy h2 		10		109.2		393.1	
+
+
+Something extremely surprising happened during this test. The heuristic function seemed to be more important than the priority method. I got this idea from looking at how A* was relatively slow. I assumed that greedy would be even slower, but when I used Greedy using h2, it was actually quite fast. I am not sure why besides the heuristic function in combination with the priority method. Because Greedy and AStar are related this seems to be the only viable explanation. 
+
